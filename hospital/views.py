@@ -8,12 +8,18 @@ from django.contrib.auth.decorators import login_required,user_passes_test
 from datetime import datetime,timedelta,date
 from django.conf import settings
 from django.db.models import Q
+from django.shortcuts import redirect
+from django.contrib.auth import logout
 
 # Create your views here.
 def home_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
     return render(request,'hospital/index.html')
+
+def logout_view(request):
+    logout(request)
+    return redirect('hospital/index.html')
 
 
 #for showing signup/login button for admin(  )
@@ -840,7 +846,3 @@ def contactus_view(request):
 #---------------------------------------------------------------------------------
 #------------------------ ADMIN RELATED VIEWS END ------------------------------
 #---------------------------------------------------------------------------------
-
-
-
-
