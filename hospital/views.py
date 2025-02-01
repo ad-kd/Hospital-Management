@@ -19,7 +19,7 @@ def home_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('hospital/index.html')
+    return redirect('/')
 
 
 #for showing signup/login button for admin(  )
